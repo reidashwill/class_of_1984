@@ -7,7 +7,7 @@ class LocationsController <ApplicationController
   end
 
   def new
-    @locations = Location.all
+    @location = Location.new
     render :new
   end
 
@@ -31,7 +31,7 @@ class LocationsController <ApplicationController
     render :show
   end
 
-  def updated
+  def update
     @location - Location.find(params[:id])
     if @location.update(location_params)
       redirect_to locations_path

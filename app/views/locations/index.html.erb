@@ -1,0 +1,14 @@
+<h2>Locations</h2>
+  <% if @locations.any? %>
+    <ul>
+      <% @locations.each do |location| %>
+        <li>
+        <%= link_to location.name, location_path(location) %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no locations yet</p>
+  <% end %>
+
+<button><%= link_to "Create New Location", new_location_path %></button>

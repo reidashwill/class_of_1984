@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_180330) do
+ActiveRecord::Schema.define(version: 2020_06_02_202122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,14 @@ ActiveRecord::Schema.define(version: 2020_06_02_180330) do
     t.string "name"
     t.integer "atk_mod"
     t.integer "hp_mod"
+    t.integer "location_id"
+    t.integer "user_id"
+    t.boolean "is_available?", default: false
   end
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "item_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,7 +40,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_180330) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "admin", default: false
-    t.integer "item_id"
     t.integer "atk"
     t.integer "hp"
     t.string "reset_password_token"
@@ -50,6 +51,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_180330) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "locations", "items"
-  add_foreign_key "users", "items"
+  add_foreign_key "items", "locations"
+  add_foreign_key "items", "users"
 end
