@@ -28,11 +28,12 @@ class LocationsController <ApplicationController
 
   def show 
     @location = Location.find(params[:id])
+    @items = @location.items
     render :show
   end
 
   def update
-    @location - Location.find(params[:id])
+    @location = Location.find(params[:id])
     if @location.update(location_params)
       redirect_to locations_path
     else

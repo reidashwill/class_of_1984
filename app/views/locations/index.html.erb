@@ -10,5 +10,6 @@
   <% else %>
     <p>There are no locations yet</p>
   <% end %>
+  <%# <%= will_paginate @locations, renderer: BootstrapPagination::Rails %> 
 
 <button><%= link_to "Create New Location", new_location_path %></button>

@@ -1,0 +1,7 @@
+<button><%= link_to "Edit Item", edit_location_item_path(@item) %></button>
+<button><%= link_to "Delete Item", location_item_path(@item), :data => {:confirm => "You sure?", :method => "delete"} %></button>
+<br>
+<h1> <%= @item.name %> </h1>
+
+<p> Attack modification: <%= @item.atk_mod %></p>
+<p> HP modification: <%= @item.hp_mod %></p>

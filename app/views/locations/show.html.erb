@@ -1,7 +1,24 @@
-<button><%= link_to "Add a New Item", new_item_path %></button>
+<button><%= link_to "Edit Location", edit_location_path %></button>
+<button><%= link_to "Delete Location", location_path(@location), :data => {:confirm => "You sure?", :method => "delete"} %></button>
+<button><%= link_to "Add a New Item", new_location_item_path(@location) %></button>
 <button><%= link_to "Add a New Enemy", new_enemy_path %></button>
 <br>
 <h1> <%= @location.name %> </h1>
 
 <p> <%= @location.description %></p>
+
+
+  <% if @items.any? %>
+    <ul>
+      <% @items.each do |item| %>
+        <li>
+        <%= link_to item.name, location_item_path(@location, item)%>
+        </li> 
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no items yet</p>
+  <% end %>
+
+
 
