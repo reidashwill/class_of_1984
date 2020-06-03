@@ -8,3 +8,6 @@
 
 <p> Attack modification: <%= @item.atk_mod %></p>
 <p> HP modification: <%= @item.hp_mod %></p>
+<% if @item.item_photo.attached? %>
+  <%= image_tag @item.item_photo %>
+<% end %>

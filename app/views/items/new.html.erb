@@ -1,11 +1,13 @@
 <h1>Create a new Item</h1>
 
 <%= form_for [@location, @item] do |f| %>
-<%=f.label :name %>
-<%=f.text_field :name  %>
+<%= f.label :name %>
+<%= f.text_field :name  %>
 <%= f.label :atk_mod  %>
-<%=f.number_field :atk_mod  %>
-<%=f.label :hp_mod %>
-<%=f.number_field :hp_mod  %>
+<%= f.number_field :atk_mod  %>
+<%= f.label :hp_mod %>
+<%= f.number_field :hp_mod  %> 
+<%= f.label :item_photo %>
+<%= f.file_field :item_photo  %>
 <%= f.submit %>
-<% end %>
+<% end %> 

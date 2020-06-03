@@ -37,6 +37,7 @@ class EnemiesController < ApplicationController
 
   def update
     @enemy = Enemy.find(params[:id])
+    @enemy.enemy_photo.attach(params[:enemy][:enemy_photo])
     if @enemy.update(enemy_params)
       redirect_to enemies_path
     else

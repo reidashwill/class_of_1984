@@ -20,6 +20,7 @@ class LocationsController <ApplicationController
 
   def create
     @location = Location.new(location_params)
+    @location.location_photo.attach(params[:location][:location_photo])
     if @location.save
       flash[:notice] = "Location added!"
       redirect_to locations_path

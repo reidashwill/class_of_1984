@@ -9,6 +9,10 @@
 
 <p> <%= @location.description %></p>
 
+<% if @location.location_photo.attached? %>
+  <%= image_tag @location.location_photo %>
+<% end %>
+
 
   <% if @items.any? %>
     <ul>
