@@ -5,3 +5,7 @@
 
 <p> Attack: <%= @enemy.atk %></p>
 <p> Hp: <%= @enemy.hp %></p>
+
+<% if @enemy.enemy_photo.attached? %>
+  <%= image_tag @enemy.enemy_photo %>
+<% end %>

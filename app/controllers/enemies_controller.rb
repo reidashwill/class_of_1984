@@ -1,5 +1,8 @@
 class EnemiesController < ApplicationController
   before_action :authenticate_user!
+  before_action :only => [:new, :edit, :create, :destroy, :update] do
+    redirect_to enemies_path unless current_user && current_user.admin
+  end
 
   def index
     @enemies = Enemy.all
@@ -13,6 +16,7 @@ class EnemiesController < ApplicationController
 
   def create
     @enemy = Enemy.new(enemy_params)
+    @enemy.enemy_photo.attach(params[:enemy][:enemy_photo])
     if @enemy.save
       flash[:notice] = "Enemy added!"
       redirect_to enemies_path

@@ -11,4 +11,6 @@
     <p>There are no enemies yet</p>
   <% end %>
 
+<% if current_user && current_user.admin %>
   <button><%= link_to "Create New Enemy", new_enemy_path %></button>
+<% end %>

@@ -1,7 +1,9 @@
+<% if current_user && current_user.admin %>
 <button><%= link_to "Edit Location", edit_location_path %></button>
 <button><%= link_to "Delete Location", location_path(@location), :data => {:confirm => "You sure?", :method => "delete"} %></button>
 <button><%= link_to "Add a New Item", new_location_item_path(@location) %></button>
 <button><%= link_to "Add a New Enemy", new_enemy_path %></button>
+<% end %>
 <br>
 <h1> <%= @location.name %> </h1>
 

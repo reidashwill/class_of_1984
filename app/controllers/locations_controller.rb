@@ -1,9 +1,16 @@
 class LocationsController <ApplicationController
   before_action :authenticate_user!
+  before_action :only => [:new, :edit, :create, :destroy, :update] do
+    redirect_to locations_path unless current_user && current_user.admin
+  end
 
   def index
     @locations = Location.all
+    if current_user
+      flash[:notice] = "Please sign in to continue."
+    end
     render :index
+    
   end
 
   def new

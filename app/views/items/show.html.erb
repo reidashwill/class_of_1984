@@ -1,5 +1,8 @@
+
+<% if current_user && current_user.admin %>
 <button><%= link_to "Edit Item", edit_location_item_path(@item) %></button>
 <button><%= link_to "Delete Item", location_item_path(@item), :data => {:confirm => "You sure?", :method => "delete"} %></button>
+<% end %>
 <br>
 <h1> <%= @item.name %> </h1>
 

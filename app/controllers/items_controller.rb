@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
+  before_action :only => [:new, :edit, :create, :destroy, :update] do
+    redirect_to items_path unless current_user && current_user.admin
+  end
 
   def index
     @items = Item.all
