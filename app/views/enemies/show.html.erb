@@ -1,0 +1,7 @@
+<button><%= link_to "Edit enemy", edit_enemy_path %></button>
+<button><%= link_to "Delete enemy", enemy_path(@enemy), :data => {:confirm => "You sure?", :method => "delete"} %></button>
+<br>
+<h1> <%= @enemy.name %> </h1>
+
+<p> Attack: <%= @enemy.atk %></p>
+<p> Hp: <%= @enemy.hp %></p>

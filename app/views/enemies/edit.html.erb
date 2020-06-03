@@ -1,0 +1,11 @@
+<h1>Update your enemy!</h1>
+
+<%= form_for [@enemy] do |f| %>
+<%=f.label :name %>
+<%=f.text_field :name  %>
+<%= f.label :atk  %>
+<%=f.number_field :atk  %>
+<%=f.label :hp %>
+<%=f.number_field :hp  %>
+<%= f.submit %>
+<% end %>

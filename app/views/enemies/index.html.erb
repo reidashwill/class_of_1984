@@ -1,0 +1,14 @@
+<h2>Enemies</h2>
+  <% if @enemies.any? %>
+    <ul>
+      <% @enemies.each do |enemy| %>
+        <li>
+        <%= link_to enemy.name, enemy_path(enemy) %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no enemies yet</p>
+  <% end %>
+
+  <button><%= link_to "Create New Enemy", new_enemy_path %></button>
